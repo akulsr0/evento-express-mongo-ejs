@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>Evento</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <center>
+        <h1 class="titleText">Evento</h1>
+        <div class="menuDiv">
+          <a href="" class="menuItem">Home</a>
+          <a href="/events" class="menuItem">Events</a>
+          <a href="" class="menuItem">About Us</a>
+          <a href="" class="menuItem">Contact Us</a>
+          <hr size="1" width="60%" style="margin-top: 10px;" />
+        </div>
+      </center>
+    </header>
+    <div class="trendingDiv">
+      <strong class="mr-3">Trending:</strong>
+      <marquee direction="left">
+        <small
+          >Coldplay Live Concert @ JioPark Mumbai | JSMeetup at IGP, Lucknow |
+          Zakir Khan StandUp Comedy Live at Canvas Laugh Club, Delhi</small
+        >
+      </marquee>
+    </div>
+    <div class="showcaseImagesDiv">
+      <div class="showcaseImagesDiv1">
+        <img class="zoomInImage" src= <%= showcaseResult[showcaseResultLength -
+        1].img1 %> alt="" style="height: 500px; width: 100%" />
+      </div>
+      <div class="showcaseImagesDiv2">
+        <div class="showcaseImagesDiv21">
+          <img class="zoomInImage" src= <%= showcaseResult[showcaseResultLength
+          - 1].img2 %> alt="" style="height: 100%; width: 100%" />
+        </div>
+        <div class="showcaseImagesDiv22">
+          <img class="zoomInImage" src= <%= showcaseResult[showcaseResultLength
+          - 1].img3 %> alt="" style="height: 100%; width: 100%;" />
+        </div>
+      </div>
+    </div>
+    <div class="upcomingEventsDiv ml-2 mr-2">
+      <center>
+        <div class="upEventsTitleDiv">
+          <h3 class="opensans bold">Upcoming Events</h3>
+        </div>
+      </center>
+      <div class="upcomingEvents row">
+        <!-- Events -->
+        <% if(result.length>0) { %> <% result.map(event => { %>
+        <div class="card eventItem">
+          <img src=<%= event.img%> alt="" class="card-img-top eventImage" />
+          <div
+            class="card-body m-0 p-2"
+            style="word-wrap: break-word; width: 240px"
+          >
+            <strong><%= event.name %></strong> <br />
+            <small><%= event.description %></small> <br />
+            <i><small><%= event.date %></small></i>
+          </div>
+          <div class="card-footer p-1">
+            <center>
+              <strong>Price: </strong>
+              <% if(event.price==0){ %> Free <% } else { %> ₹<%= event.price %>
+              <% } %>
+            </center>
+          </div>
+        </div>
+        <% }) %> <% } %>
+      </div>
+    </div>
+  </body>
+</html>

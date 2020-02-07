@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Evento: Add Event</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <center>
+        <h1 class="titleText">Evento</h1>
+        <div class="menuDiv">
+          <a href="/" class="menuItem">Home</a>
+          <a href="" class="menuItem">Events</a>
+          <a href="" class="menuItem">About Us</a>
+          <a href="" class="menuItem">Contact Us</a>
+          <hr size="1" width="60%" style="margin-top: 10px;" />
+        </div>
+      </center>
+    </header>
+    <center>
+      <div class="addEventDiv">
+        <h3>Add/Update ShowcaseBox</h3>
+        <form method="POST" action="/add-showcase">
+          <input placeholder="Image 1" type="text" name="img1" />
+          <input placeholder="Image 2" type="text" name="img2" />
+          <input placeholder="Image 3" type="text" name="img3" />
+          <br />
+          <button class="submitEventButton">Submit</button>
+        </form>
+      </div>
+    </center>
+  </body>
+</html>

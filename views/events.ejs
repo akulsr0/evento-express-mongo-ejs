@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Evento: Events</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <center>
+        <h1 class="titleText">Evento</h1>
+        <div class="menuDiv">
+          <a href="/" class="menuItem">Home</a>
+          <a href="" class="menuItem">Events</a>
+          <a href="" class="menuItem">About Us</a>
+          <a href="" class="menuItem">Contact Us</a>
+          <hr size="1" width="60%" style="margin-top: 10px;" />
+        </div>
+      </center>
+    </header>
+    <div class="eventsOptionsDiv">
+      <div class="gotoEventDiv" style="background-color: #ff6b81;" onclick="gotoViewAllEvents()" >
+        <h4 class="opensans" style="font-weight: 700;" >View All Events</h4 class="opensans" style="font-weight: 700;" >
+      </div>
+      <div class="gotoEventDiv" style="background-color: #e84393;" onclick="gotoViewEventsByCategory()" >
+        <h4 class="opensans" style="font-weight: 700;" >View Events By Category</h3>
+      </div>
+      <div class="gotoEventDiv" style="background-color: #ff4757;" onclick="gotoDeleteEvents()" >
+        <h4 class="opensans" style="font-weight: 700;" >Delete Events</h3>
+      </div>
+      <div class="gotoEventDiv" style="background-color: #ff7675;" >
+        <h4 class="opensans" style="font-weight: 700;" onclick="gotoAddEvents()" >Add Events</h3>
+      </div>
+    </div>
+  </body>
+  <script>
+      function gotoViewAllEvents() {
+          window.location = "/events/all"
+      }
+      function gotoViewEventsByCategory() {
+        window.location = "/events/all"
+        }
+        function gotoDeleteEvents() {
+            window.location = "/events/all"
+        }
+        function gotoAddEvents() {
+            window.location = "/events/add"
+        }
+  </script>
+</html>
