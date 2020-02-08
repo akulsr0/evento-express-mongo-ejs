@@ -15,9 +15,9 @@
         <h1 class="titleText">Evento</h1>
         <div class="menuDiv">
           <a href="/" class="menuItem">Home</a>
-          <a href="" class="menuItem">Events</a>
-          <a href="" class="menuItem">About Us</a>
-          <a href="" class="menuItem">Contact Us</a>
+          <a href="/events" class="menuItem">Events</a>
+          <a href="/about-us" class="menuItem">About Us</a>
+          <a href="/contact-us" class="menuItem">Contact Us</a>
           <hr size="1" width="60%" style="margin-top: 10px;" />
         </div>
       </center>
@@ -31,6 +31,14 @@
           <input placeholder="Price" type="number" name="price" />
           <input placeholder="Date" type="text" name="date" />
           <input placeholder="Description" type="text" name="description" />
+          <br />
+          <select id="category" name="category">
+            <option value="" selected>Select</option>
+            <option value="concert">Concert</option>
+            <option value="conference">Conference</option>
+            <option value="comedy">Comedy</option>
+            <option value="meetup">Mercedes</option>
+          </select>
           <br />
           <button class="submitEventButton">Submit</button>
         </form>

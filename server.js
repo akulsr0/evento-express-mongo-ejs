@@ -15,7 +15,6 @@ app.use(express.static(__dirname + '/views'));
 app.get('/', async (req, res) => {
   const result = await Event.find({});
   const showcaseResult = await ShowcaseBox.find({});
-  console.log(showcaseResult.length);
   res.render('index', {
     result,
     showcaseResult,
@@ -23,8 +22,41 @@ app.get('/', async (req, res) => {
   });
 });
 
+app.get('/about-us', (req, res) => {
+  res.render('aboutus');
+});
+
+app.get('/contact-us', (req, res) => {
+  res.render('contactus');
+});
+
 app.get('/events', (req, res) => {
   res.render('events');
+});
+
+app.get('/events/all', async (req, res) => {
+  try {
+    const allEvents = await Event.find({});
+    res.render('allevents', { allEvents });
+  } catch (err) {
+    res.send(err.message);
+  }
+});
+
+app.get('/events/category', (req, res) => {
+  res.render('category');
+});
+
+app.get('/events/category/:category', async (req, res) => {
+  try {
+    const categoryEvents = await Event.find({ category: req.params.category });
+    res.render('categorypage', {
+      cname: categoryEvents[0].category,
+      categoryEvents
+    });
+  } catch (err) {
+    res.send(err.message);
+  }
 });
 
 app.get('/events/add', (req, res) => {
@@ -32,14 +64,33 @@ app.get('/events/add', (req, res) => {
 });
 
 app.post('/events/add', (req, res) => {
-  const { name, img, price, date, description } = req.body;
-  const event = new Event({ name, img, price, date, description });
+  const { name, img, price, date, description, category } = req.body;
+  const event = new Event({ name, img, price, date, description, category });
   event
     .save()
-    .then(() => res.send('Event Saved'))
+    .then(() => res.render('eventcreated'))
     .catch(err => {
       res.send(err.message);
     });
+});
+
+app.get('/events/delete', async (req, res) => {
+  try {
+    const eventsResult = await Event.find({});
+    res.render('deleteevent', { eventsResult });
+  } catch (err) {
+    res.send(err.message);
+  }
+});
+
+app.post('/events/delete/:id', (req, res) => {
+  const eventId = req.params.id;
+  Event.deleteOne({ _id: eventId }, (err, result) => {
+    if (err) {
+      res.send(err);
+    }
+    res.render('deletedsuccess');
+  });
 });
 
 app.get('/add-showcase', (req, res) => {

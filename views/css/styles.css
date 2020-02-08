@@ -6,6 +6,16 @@
     box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
 a {
     text-decoration: none;
 }
@@ -144,9 +154,10 @@ input {
 }
 
 .eventsOptionsDiv {
-    height: 250px;
+    height: 200px;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
+    padding: 0;
 }
 
 .gotoEventDiv {
@@ -160,6 +171,34 @@ input {
 
 .gotoEventDiv:hover {
     transform: scale(1.05);
+}
+
+.deleteListDiv {
+    margin: 20px;
+}
+
+.deleteList {
+    list-style-type: none;
+}
+
+.deleteListItem {
+    font-family: 'Open Sans';
+    font-weight: 700;
+    padding: 4px;
+}
+
+.deleteListItem a {
+    color: red;
+    font-weight: 300;
+    margin-left: 10px;
+}
+
+.deleteList:nth-child(even) {
+    background-color: #ffe2e6;
+}
+
+.deleteList:nth-child(odd) {
+    background-color: #ffc5cd;
 }
 
 @media only screen and (max-width: 776px) {

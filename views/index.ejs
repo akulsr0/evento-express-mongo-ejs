@@ -16,8 +16,8 @@
         <div class="menuDiv">
           <a href="" class="menuItem">Home</a>
           <a href="/events" class="menuItem">Events</a>
-          <a href="" class="menuItem">About Us</a>
-          <a href="" class="menuItem">Contact Us</a>
+          <a href="/about-us" class="menuItem">About Us</a>
+          <a href="/contact-us" class="menuItem">Contact Us</a>
           <hr size="1" width="60%" style="margin-top: 10px;" />
         </div>
       </center>
@@ -77,5 +77,40 @@
         <% }) %> <% } %>
       </div>
     </div>
+    <div class="categoryEventsDiv mt-4">
+      <center>
+        <div class="upEventsTitleDiv">
+          <h3 class="opensans bold">Events by Category</h3>
+        </div>
+      </center>
+      <div class="eventsOptionsDiv">
+        <div class="gotoEventDiv" style="background-color: #ff6b6b;" onclick="gotoConcert()" >
+          <h4 class="opensans" style="font-weight: 700;" >Concert</h4 class="opensans" style="font-weight: 700;" >
+        </div>
+        <div class="gotoEventDiv" style="background-color: #ff9ff3;" onclick="gotoConference()" >
+          <h4 class="opensans" style="font-weight: 700;" >Conference</h3>
+        </div>
+        <div class="gotoEventDiv" style="background-color: #1dd1a1;" onclick="gotoComedy()" >
+          <h4 class="opensans" style="font-weight: 700;" >Comedy</h3>
+        </div>
+        <div class="gotoEventDiv" style="background-color: #54a0ff;" onclick="gotoMeetup()">
+          <h4 class="opensans" style="font-weight: 700;" >Meetup</h3>
+        </div>
+      </div>
+    </div>
   </body>
+  <script>
+    function gotoConcert() {
+      window.location = 'events/category/concert'
+    }
+    function gotoConference() {
+      window.location = 'events/category/conference'
+    }
+    function gotoComedy() {
+      window.location = 'events/category/comedy'
+    }
+    function gotoMeetup() {
+      window.location = 'events/category/meetup'
+    }
+  </script>
 </html>
