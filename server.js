@@ -6,6 +6,7 @@ const port = process.env.PORT || 5000;
 
 const Event = require('./models/Event');
 const ShowcaseBox = require('./models/ShowcaseBox');
+const Feedback = require('./models/Feedback');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -28,6 +29,24 @@ app.get('/about-us', (req, res) => {
 
 app.get('/contact-us', (req, res) => {
   res.render('contactus');
+});
+
+app.post('/contact-us', (req, res) => {
+  const { name, email, feedback } = req.body;
+  const feedbackObj = new Feedback({ name, email, feedback });
+  feedbackObj
+    .save()
+    .then(() => res.render('feedbacksaved'))
+    .catch(err => res.send(err.message));
+});
+
+app.get('/feedbacks', async (req, res) => {
+  try {
+    const feedbackResult = await Feedback.find({});
+    res.render('feedbackpage', { feedbackResult });
+  } catch (err) {
+    res.send(err.message);
+  }
 });
 
 app.get('/events', (req, res) => {

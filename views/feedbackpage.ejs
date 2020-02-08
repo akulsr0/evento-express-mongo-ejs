@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Evento: About Us</title>
+    <title>Evento: Deleted</title>
     <link rel="stylesheet" href="/css/styles.css" />
     <link
       rel="stylesheet"
@@ -23,23 +23,19 @@
       </center>
     </header>
     <center>
+      <div style="margin-top: 10px;"> 
       <div class="upEventsTitleDiv">
-        <h3 class="opensans bold">Contact Us</h3>
-      </div>
-      <div style="margin: 10px;">
-        <form method="POST" action="/contact-us">
-          <input placeholder="Name" type="text" name="name" />
-          <input placeholder="Email" type="email" name="email" />
-          <br />
-          <textarea
-            placeholder="Feedback"
-            style="width: 80%; padding-left: 6px; height: 150px"
-            name="feedback"
-          ></textarea>
-          <br />
-          <button class="submitEventButton">Submit</button>
-        </form>
+        <h3 class="opensans" style="font-weight: 700;">Feedbacks</h3>
       </div>
     </center>
+    <div style="margin: 10px;">
+      <% feedbackResult.map(feedback => { %>
+          <div class="feedback">
+            <strong><%=feedback.name%></strong><br>
+            <small><%=feedback.email%></small>
+            <p><%=feedback.feedback%></p>
+          </div>
+      <% }) %>
+    </div>
   </body>
 </html>
